@@ -1,0 +1,36 @@
+# The below is a script that tests my code - do not amend
+from typing import Callable
+def test(function: Callable, test_table: list) -> None:
+    """Test the function with the test_table. Report failed tests.
+
+    Preconditions: each element of test_table is a list or tuple with
+        - a string (the test case name)
+        - one or more values (the inputs to the function)
+        - the expected output value
+    """
+    for test_case in test_table:
+        name = test_case[0]
+        inputs = test_case[1:-1]
+        expected = test_case[-1]
+        actual = function(*inputs)
+        if actual != expected:
+            print(name, 'FAILED:', actual, 'instead of', expected)
+    print('Tests finished.')
+
+
+# Question starts here
+def count_sub_strings(substring: str, main_string: str) -> bool:
+    # My code starts here:
+    count = 0
+    for test_case in test_table:
+        if substring == main_string:
+            count = count + 1      
+
+
+# Test table - do not amend 
+test_table = [
+    ['None','abc','def',0],
+    ['One','abc','xabcx',1],
+    ['Two','abc','xabcxabc',2]
+]
+test(count_sub_strings, test_table)
